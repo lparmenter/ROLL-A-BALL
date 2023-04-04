@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HelloWorld : MonoBehaviour
 {
-    string winMessage = "You Win";
+    public string winMessage = "You Win";
     int counter = 0;
     int winAmount = 5;
 
@@ -13,9 +13,9 @@ public class HelloWorld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
 
-
-        ShowMessage();
+        
     }
 
     // Update is called once per frame
@@ -37,6 +37,7 @@ public class HelloWorld : MonoBehaviour
 
     void ShowMessage()
     {
-        Debug.Log(winMessage);
+        Debug.Log(winMessage + " " + counter + "times");
+
     }
 }
