@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
         resetPoint = GameObject.Find("ResetPoint");
         originalColor = GetComponent<Renderer>().material.color;
+        Time.timeScale = 1;
 
 
     }
