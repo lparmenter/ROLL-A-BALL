@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 1;
+    [HideInInspector]
+    public float baseSpeed;
     int pickupCount;
     int totalPickups;
     int pickupCollected;
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        baseSpeed = speed;
         //Get the rigidbody component of the gameObject
         rb = GetComponent<Rigidbody>();
         //Get the number of pickups in our scene
@@ -123,6 +126,12 @@ public class PlayerController : MonoBehaviour
             //Decrement the pickup count
             pickupCount -= 1;
             CheckPickups();
+        }
+
+        if(other.gameObject.CompareTag("PowerUp"))
+        {
+            other.GetComponent<Powerup>().UsePowerup();
+            other.gameObject.transform.position = Vector3.down * 1000;
         }
     }
 
